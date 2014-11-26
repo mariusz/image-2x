@@ -1,7 +1,11 @@
 $retina: "only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx)"
 
-=image-2x($image, $image-2x, $size)
+=image-2x($image, $image-2x, $image-svg, $size)
   background-image: image-url($image)
+
+  @if $image-svg
+    background-image: none, image-url($image-svg), image-url($image-2x)
+    
   @media #{$retina}
     background-image: image-url($image-2x)
     @if $size
