@@ -4,9 +4,13 @@ $retina: "only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (
   background-image: image-url($image)
 
   @if $image-svg
-    background-image: none, image-url($image-svg), image-url($image-2x)
-    
+    background-image: none, image-url($image-svg), image-url($image)
+
   @media #{$retina}
     background-image: image-url($image-2x)
+
+    @if $image-svg
+      background-image: none, image-url($image-svg), image-url($image)
+
     @if $size
       background-size: $size
